@@ -20,14 +20,9 @@
 # Output data
 # 6 9 8 0 0 0
 
-n = int(input())
-numbers = [int(num) for num in input().split()]
-for bin in numbers:
-    if bin:
-        print(bin, end=' ')
-        n -= 1
-
-while n > 0:
-    print(0, end=' ')
-    n -= 1
-
+n = input()
+numbers = list(map(int, input().split()))
+non_zeros = [num for num in numbers if num != 0]
+zeros = [0] * (len(numbers) - len(non_zeros))
+result = non_zeros + zeros
+print(*result)
